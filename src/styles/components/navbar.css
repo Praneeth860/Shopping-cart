@@ -1,0 +1,18 @@
+.navbar {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.navbar-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+nav button {
+  all: unset;
+  cursor: pointer;
+}
