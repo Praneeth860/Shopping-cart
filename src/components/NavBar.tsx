@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/components/navbar.css";
+import CartIcon from "../assets/icons/CartIcon";
 const Navbar = () => {
   return (
     <nav className="navbar">
@@ -14,7 +15,10 @@ const Navbar = () => {
           <Link to="/about">About</Link>
         </li>
       </ul>
-      <button>hi</button>
+      <button className="cart-button">
+        <CartIcon />
+        <span className="cart-badge">7</span>
+      </button>
     </nav>
   );
 };

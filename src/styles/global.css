@@ -10,6 +10,11 @@
   padding: 0;
   font: inherit;
 }
+:root {
+  --font-family: system-ui;
+  --cart-color: hsl(226, 100%, 50%);
+}
+
 img,
 svg,
 picture {
