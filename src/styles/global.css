@@ -21,3 +21,10 @@ picture {
   display: block;
   max-width: 100%;
 }
+.home-container,
+.about-container {
+  margin: 1.5rem calc(1.5rem - 6px);
+  font-size: 2rem;
+  font-family: var(--font-family);
+  font-weight: 500;
+}

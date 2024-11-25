@@ -16,6 +16,10 @@
 nav a {
   text-decoration: none;
   color: inherit;
+  color: hsl(0, 0%, 50%);
+}
+.active-link {
+  color: hsl(0, 0%, 0%);
 }
 .cart-button {
   all: unset;
@@ -25,11 +29,13 @@ nav a {
   padding-bottom: 0.6rem;
   border: 0.25px solid hsl(0, 0%, 50%);
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 .cart-button svg {
   width: 24px;
   height: 24px;
   color: var(--cart-color);
+  transition: color 0.3s;
 }
 .cart-badge {
   position: absolute;
@@ -46,4 +52,10 @@ nav a {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+.cart-button:hover svg {
+  color: white;
+}
+.cart-button:hover {
+  background-color: var(--cart-color);
 }
