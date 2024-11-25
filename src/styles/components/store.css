@@ -1,12 +1,12 @@
 .store-container {
-  padding: 20px;
+  margin: 20px;
   background-color: #f9f9f9;
 }
 
 .store-title {
-  text-align: center;
+  font-family: var(--font-family);
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 20px;
   color: #333;
 }

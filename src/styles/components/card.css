@@ -1,13 +1,14 @@
 .product-card {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  font-family: var(--font-family);
 }
 
 .product-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .product-image {
@@ -19,12 +20,13 @@
 
 .product-info {
   padding: 15px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .product-name {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 10px;
   color: #333;
 }
@@ -32,4 +34,21 @@
 .product-price {
   font-size: 1rem;
   color: #777;
+}
+.card-button {
+  background-color: hsl(211, 100%, 43%);
+  color: white;
+  width: calc(100% - 2rem);
+  margin-inline: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card-button:hover {
+  background-color: hsl(211, 100%, 35%);
 }
