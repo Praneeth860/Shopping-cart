@@ -13,6 +13,7 @@
 :root {
   --font-family: system-ui;
   --cart-color: hsl(211, 100%, 43%);
+  --button-bg-color: hsl(211, 100%, 43%);
 }
 
 img,

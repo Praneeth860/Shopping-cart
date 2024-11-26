@@ -13,8 +13,10 @@ const Card = ({ product }: CardProps) => {
       </div>
       {/* <button className="card-button">+ Add to Cart</button> */}
       <div className="quantity-controls">
-        <button className="quantity-button">-</button>
-        <span className="quantity">1 in Cart</span>
+        <button className="quantity-button ">-</button>
+        <span className="quantity-content">
+          <span className="quantity">3</span> in cart
+        </span>
         <button className="quantity-button">+</button>
       </div>
       <button className="remove-button">Remove</button>
