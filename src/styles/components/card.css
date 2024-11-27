@@ -70,6 +70,10 @@
 .quantity-button {
   background-color: var(--button-bg-color);
   color: #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+.quantity-button:hover {
+  background-color: hsl(211, 100%, 35%);
 }
 .quantity {
   font-size: 1.8rem;
@@ -80,4 +84,8 @@
   color: white;
   padding: 0.5rem;
   margin-bottom: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+.remove-button:hover {
+  background-color: hsl(0, 100%, 35%);
 }
