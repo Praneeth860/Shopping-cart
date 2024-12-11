@@ -1,11 +1,11 @@
 .store-container {
   margin: 20px;
-  max-width: 1055px;
+  max-width: 1250px;
 }
 
 .store-title {
   font-family: var(--font-family);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 20px;
   color: #333;
@@ -13,18 +13,20 @@
 
 .store-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
-@media (min-width: 768px) and (max-width: 1100px) {
+@media (min-width: 768px) and (max-width: 1350px) {
   .store-container {
-    margin: 30px;
+    margin: 2rem 2.5rem;
   }
 }
 
 /* Laptops and desktops */
-@media (min-width: 1100px) {
-  .store-container {
+@media (min-width: 1350px) {
+  .store-container,
+  .home-container,
+  .about-container {
     margin: 40px auto;
   }
 }
