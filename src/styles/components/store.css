@@ -16,9 +16,14 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
+@media (480px <= width <= 767px) {
+  .store-container {
+    margin: 1.25rem 2rem;
+  }
+}
 @media (min-width: 768px) and (max-width: 1350px) {
   .store-container {
-    margin: 2rem 2.5rem;
+    margin: 1.25rem 2.5rem;
   }
 }
 
@@ -27,6 +32,6 @@
   .store-container,
   .home-container,
   .about-container {
-    margin: 40px auto;
+    margin: 20px auto;
   }
 }
