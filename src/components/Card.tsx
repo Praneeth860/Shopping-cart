@@ -1,5 +1,6 @@
 import { Product } from "../assets/images";
 import "../styles/components/card.css";
+import formatPrice from "../utils/formatPrice";
 interface CardProps {
   product: Product;
 }
@@ -9,7 +10,7 @@ const Card = ({ product }: CardProps) => {
       <img src={product.image} alt={product.name} className="product-image" />
       <div className="product-info">
         <h3 className="product-name">{product.name}</h3>
-        <p className="product-price">{product.price}</p>
+        <p className="product-price">{formatPrice(product.price)}</p>
       </div>
       {/* <button className="card-button">+ Add to Cart</button> */}
       <div className="quantity-controls">
