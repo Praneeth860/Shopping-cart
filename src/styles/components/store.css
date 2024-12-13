@@ -17,12 +17,16 @@
   gap: 20px;
 }
 @media (480px <= width <= 767px) {
-  .store-container {
+  .store-container,
+  .home-container,
+  .about-container {
     margin: 1.25rem 2rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1350px) {
-  .store-container {
+  .store-container,
+  .home-container,
+  .about-container {
     margin: 1.25rem 2.5rem;
   }
 }

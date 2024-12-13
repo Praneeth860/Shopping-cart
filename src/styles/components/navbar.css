@@ -33,7 +33,7 @@ nav a {
   padding-bottom: 0.6rem;
   border: 0.25px solid hsl(0, 0%, 50%);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 }
 .cart-button svg {
   width: 24px;
@@ -61,7 +61,14 @@ nav a {
   color: white;
 }
 .cart-button:hover {
+  scale: 1.1;
   background-color: var(--cart-color);
+}
+.navbar-item {
+  transition: scale 0.1s;
+}
+.navbar-item:hover {
+  scale: 1.2;
 }
 @media (480px <= width <= 767px) {
   .navbar {
