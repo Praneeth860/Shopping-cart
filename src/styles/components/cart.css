@@ -47,7 +47,7 @@
   width: 120px;
   aspect-ratio: 16/9;
   object-fit: cover;
-  /* border-radius: 5px; */
+  border-radius: 3px;
 }
 
 .cart-item-details {
