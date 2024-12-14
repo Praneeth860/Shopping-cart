@@ -1,36 +1,32 @@
-// ShoppingCart.tsx
 import "../styles/components/cart.css";
 import products from "../assets/images";
+import { X } from "lucide-react";
+import CartItem from "./CartItem";
+import formatPrice from "../utils/formatPrice";
 
 const ShoppingCart = () => {
-  const calculateTotal = (): string => {
-    const total = products.reduce((sum, item) => sum + item.price, 0);
-    return total.toFixed(2);
+  const calculateTotal = () =>
+    products.reduce((sum, item) => sum + item.price, 0);
+
+  const handleRemoveItem = (id: number) => {
+    console.log(`Remove item with id: ${id}`);
+    // Implement remove logic here
   };
 
   return (
     <div className="cart-container">
       <h2 className="cart-title">Cart</h2>
-      <button className="close-btn">&times;</button>
+      <button className="close-btn" aria-label="Close cart">
+        <X color="hsl(0, 0%, 33%)" strokeWidth={1.75} />
+      </button>
       <div className="cart-items">
         {products.map((item) => (
-          <div className="cart-item" key={item.id}>
-            <img src={item.image} alt={item.name} className="cart-item-image" />
-            <div className="cart-item-details">
-              <h3 className="cart-item-name">{item.name}</h3>
-              <p className="cart-item-price">${item.price.toFixed(2)}</p>
-            </div>
-            <div className="cart-item-actions">
-              <p className="cart-item-total">${item.price.toFixed(2)}</p>
-              <button className="remove-btn">&times;</button>
-            </div>
-          </div>
+          <CartItem key={item.id} item={item} onRemove={handleRemoveItem} />
         ))}
       </div>
-
       <div className="cart-total">
         <h3>Total:</h3>
-        <p className="total-amount">${calculateTotal()}</p>
+        <p className="total-amount">{formatPrice(calculateTotal())}</p>
       </div>
     </div>
   );

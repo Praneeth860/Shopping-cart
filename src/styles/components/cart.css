@@ -5,11 +5,11 @@
   right: 0;
   width: 50%; /* or use 30% */
   max-width: 450px; /* Optional, to limit the size */
-  min-width: 330px;
+  min-width: 350px;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0 5px hsla(0, 0%, 0%, 0.1);
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -23,12 +23,10 @@
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1.25rem;
+  right: 1.25rem;
   background: none;
   border: none;
-  font-size: 1.5rem;
-
   cursor: pointer;
 }
 
@@ -63,13 +61,13 @@
 
 .cart-item-price {
   font-size: 0.875rem;
-  color: #555;
+  color: hsl(0, 0%, 33%);
 }
 
 .cart-item-actions {
   text-align: right;
   display: flex;
-  gap: 5px;
+  gap: 0.5rem;
 }
 
 .cart-item-total {
@@ -78,8 +76,9 @@
 
 .remove-btn {
   background: none;
-  border: none;
-  font-size: 1.2rem;
+  border: 1px solid hsl(0, 100%, 30%);
+  padding: 0.5rem;
+  border-radius: 3px;
   cursor: pointer;
 }
 
