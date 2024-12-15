@@ -1,19 +1,24 @@
 /* ShoppingCart.css */
+.visible-cart {
+  width: 50%;
+  min-width: 350px;
+}
 .cart-container {
   position: fixed;
   top: 0;
   right: 0;
-  width: 50%; /* or use 30% */
-  max-width: 450px; /* Optional, to limit the size */
-  min-width: 350px;
+  width: 0; /*  or use 30% */
+  max-width: 450px; /* 350px Optional, to limit the size */
+  min-width: 0;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0 5px hsla(0, 0%, 0%, 0.1);
   padding: 1.25rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 20px;
   font-family: var(--font-family);
+  transition: width 1s;
 }
 
 .cart-title {

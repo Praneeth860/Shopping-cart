@@ -4,7 +4,10 @@ import { X } from "lucide-react";
 import CartItem from "./CartItem";
 import formatPrice from "../utils/formatPrice";
 
-const ShoppingCart = () => {
+type CartProps = {
+  isOpen: boolean;
+};
+const ShoppingCart = ({ isOpen }: CartProps) => {
   const calculateTotal = () =>
     products.reduce((sum, item) => sum + item.price, 0);
 

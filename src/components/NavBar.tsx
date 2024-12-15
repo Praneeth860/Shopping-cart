@@ -4,6 +4,10 @@ import CartIcon from "../assets/icons/CartIcon";
 import ShoppingCart from "./ShoppingCart";
 import { useState } from "react";
 const Navbar = () => {
+  const [isOpen, setOpen] = useState<boolean>(false);
+  function handleOffCanvas(): void {
+    setOpen(!isOpen);
+  }
   return (
     <>
       <nav className="navbar">
@@ -34,13 +38,13 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <button className="cart-button">
+          <button className="cart-button" onClick={handleOffCanvas}>
             <CartIcon />
             <span className="cart-badge">7</span>
           </button>
         </div>
       </nav>
-      {/* <ShoppingCart /> */}
+      <ShoppingCart isOpen={isOpen} />
     </>
   );
 };
