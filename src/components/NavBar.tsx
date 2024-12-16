@@ -44,7 +44,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <ShoppingCart isOpen={isOpen} />
+      <ShoppingCart isOpen={isOpen} handleOffCanvas={handleOffCanvas} />
     </>
   );
 };

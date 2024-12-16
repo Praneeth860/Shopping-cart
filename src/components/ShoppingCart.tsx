@@ -4,10 +4,11 @@ import { X } from "lucide-react";
 import CartItem from "./CartItem";
 import formatPrice from "../utils/formatPrice";
 
-type CartProps = {
+interface CartProps {
   isOpen: boolean;
-};
-const ShoppingCart = ({ isOpen }: CartProps) => {
+  handleOffCanvas: () => void;
+}
+const ShoppingCart = ({ isOpen, handleOffCanvas }: CartProps) => {
   const calculateTotal = () =>
     products.reduce((sum, item) => sum + item.price, 0);
 
@@ -17,9 +18,13 @@ const ShoppingCart = ({ isOpen }: CartProps) => {
   };
 
   return (
-    <div className="cart-container">
+    <div className={`cart-container ${isOpen ? "visible-cart" : ""}`}>
       <h2 className="cart-title">Cart</h2>
-      <button className="close-btn" aria-label="Close cart">
+      <button
+        className="close-btn"
+        aria-label="Close cart"
+        onClick={handleOffCanvas}
+      >
         <X color="hsl(0, 0%, 33%)" strokeWidth={1.75} />
       </button>
       <div className="cart-items">
