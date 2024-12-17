@@ -3,8 +3,9 @@ import "../styles/components/card.css";
 import formatPrice from "../utils/formatPrice";
 interface CardProps {
   product: Product;
+  id: number;
 }
-const Card = ({ product }: CardProps) => {
+const Card = ({ product, id }: CardProps) => {
   return (
     <div className="product-card">
       <img src={product.image} alt={product.name} className="product-image" />
