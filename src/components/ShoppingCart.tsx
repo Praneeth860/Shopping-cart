@@ -18,7 +18,7 @@ const ShoppingCart = ({ isOpen, handleOffCanvas }: CartProps) => {
   };
 
   return (
-    <div className={`cart-container ${isOpen ? "visible-cart" : ""}`}>
+    <div className={`cart-container ${isOpen && "visible-cart"}`}>
       <h2 className="cart-title">Cart</h2>
       <button
         className="close-btn"

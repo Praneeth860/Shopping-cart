@@ -44,6 +44,10 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
+      <div
+        className={`canvas ${isOpen && "visbile-canvas"}`}
+        onClick={handleOffCanvas}
+      ></div>
       <ShoppingCart isOpen={isOpen} handleOffCanvas={handleOffCanvas} />
     </>
   );
