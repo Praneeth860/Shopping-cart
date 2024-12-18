@@ -5,7 +5,7 @@ import "../styles/components/store.css";
 import { useCart } from "../context/cartContext";
 
 const Store = () => {
-  const { addToCart } = useCart();
+  const { addToCart, removeItemFromCart } = useCart();
   const [productList, setProductList] = useState<Product[]>(products);
   function handleIncrement(item: Product) {
     setProductList((prev): Product[] => {
@@ -27,7 +27,14 @@ const Store = () => {
       });
     });
   }
-
+  function handleRemove(item: Product) {
+    setProductList((prev): Product[] => {
+      return prev.map(
+        (i): Product => (i.id === item.id ? { ...i, quantity: 0 } : i)
+      );
+    });
+    removeItemFromCart(item.id);
+  }
   return (
     <div className="store-container">
       <h1 className="store-title">Store</h1>
@@ -38,6 +45,7 @@ const Store = () => {
             product={product}
             handleIncrement={handleIncrement}
             handleDecerement={handleDecerement}
+            handleRemove={handleRemove}
           />
         ))}
       </div>

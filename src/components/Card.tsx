@@ -5,8 +5,14 @@ interface CardProps {
   product: Product;
   handleIncrement(item: Product): void;
   handleDecerement(item: Product): void;
+  handleRemove(item: Product): void;
 }
-const Card = ({ product, handleIncrement, handleDecerement }: CardProps) => {
+const Card = ({
+  product,
+  handleIncrement,
+  handleDecerement,
+  handleRemove,
+}: CardProps) => {
   return (
     <div className="product-card">
       <img src={product.image} alt={product.name} className="product-image" />
@@ -46,7 +52,14 @@ const Card = ({ product, handleIncrement, handleDecerement }: CardProps) => {
               +
             </button>
           </div>
-          <button className="remove-button">Remove</button>
+          <button
+            className="remove-button"
+            onClick={() => {
+              handleRemove(product);
+            }}
+          >
+            Remove
+          </button>
         </>
       )}
     </div>

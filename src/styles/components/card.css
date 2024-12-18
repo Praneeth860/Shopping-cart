@@ -76,6 +76,9 @@
 .quantity-button:hover {
   background-color: hsl(211, 100%, 35%);
 }
+.quantity-button:focus {
+  outline: 4px solid hsl(211, 100%, 78%);
+}
 .quantity {
   font-size: 1.8rem;
 }

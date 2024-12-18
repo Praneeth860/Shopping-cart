@@ -3,6 +3,7 @@ import { Product } from "../assets/images";
 export interface cartContextType {
   cartItems: Product[];
   addToCart(item: Product, quantity: number): void;
+  removeItemFromCart: (id: number) => void;
 }
 interface CartProviderProps {
   children: React.ReactNode;
@@ -30,8 +31,11 @@ export function CartProvider({ children }: CartProviderProps) {
       }
     });
   }
+  const removeItemFromCart = (id: number) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeItemFromCart }}>
       {children}
     </CartContext.Provider>
   );

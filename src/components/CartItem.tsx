@@ -11,7 +11,9 @@ const CartItem = ({ item, onRemove }: CartItemProps) => (
   <div className="cart-item" key={item.id}>
     <img src={item.image} alt={item.name} className="cart-item-image" />
     <div className="cart-item-details">
-      <h3 className="cart-item-name">{item.name}</h3>
+      <h3 className="cart-item-name">
+        {item.name} <span className="cart-quantity">x{item.quantity}</span>
+      </h3>
       <p className="cart-item-price">{formatPrice(item.price)}</p>
     </div>
     <div className="cart-item-actions">
@@ -21,7 +23,7 @@ const CartItem = ({ item, onRemove }: CartItemProps) => (
         onClick={() => onRemove(item.id)}
         aria-label="Remove item"
       >
-        <X size={10} color="hsl(0, 100%, 30%)" strokeWidth={2} />
+        <X size={10} strokeWidth={2} />
       </button>
     </div>
   </div>
