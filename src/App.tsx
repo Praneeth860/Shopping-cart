@@ -1,10 +1,13 @@
 import Navbar from "./components/NavBar";
 import Routes from "./components/Routes";
+import { CartProvider } from "./context/cartContext";
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Routes />
+      <CartProvider>
+        <Navbar />
+        <Routes />
+      </CartProvider>
     </>
   );
 };

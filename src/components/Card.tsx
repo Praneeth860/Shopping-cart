@@ -3,9 +3,8 @@ import "../styles/components/card.css";
 import formatPrice from "../utils/formatPrice";
 interface CardProps {
   product: Product;
-  id: number;
 }
-const Card = ({ product, id }: CardProps) => {
+const Card = ({ product }: CardProps) => {
   return (
     <div className="product-card">
       <img src={product.image} alt={product.name} className="product-image" />
@@ -17,7 +16,7 @@ const Card = ({ product, id }: CardProps) => {
       <div className="quantity-controls">
         <button className="quantity-button ">-</button>
         <span className="quantity-content">
-          <span className="quantity">3</span> in cart
+          <span className="quantity">{product.quantity}</span> in cart
         </span>
         <button className="quantity-button">+</button>
       </div>

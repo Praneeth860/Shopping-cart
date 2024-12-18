@@ -6,7 +6,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
   function handleOffCanvas(): void {
-    setOpen(!isOpen);
+    setOpen((prev) => !prev);
   }
   return (
     <>
