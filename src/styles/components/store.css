@@ -15,6 +15,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  align-items: start;
 }
 @media (480px <= width <= 767px) {
   .store-container,

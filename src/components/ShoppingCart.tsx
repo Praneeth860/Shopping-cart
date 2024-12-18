@@ -1,16 +1,16 @@
 import "../styles/components/cart.css";
-import products from "../assets/images";
 import { X } from "lucide-react";
 import CartItem from "./CartItem";
 import formatPrice from "../utils/formatPrice";
-
+import { useCart } from "../context/cartContext";
 interface CartProps {
   isOpen: boolean;
   handleOffCanvas: () => void;
 }
 const ShoppingCart = ({ isOpen, handleOffCanvas }: CartProps) => {
+  const { cartItems } = useCart();
   const calculateTotal = () =>
-    products.reduce((sum, item) => sum + item.price, 0);
+    cartItems.reduce((sum, item) => sum + item.price, 0);
 
   const handleRemoveItem = (id: number) => {
     console.log(`Remove item with id: ${id}`);
@@ -28,7 +28,7 @@ const ShoppingCart = ({ isOpen, handleOffCanvas }: CartProps) => {
         <X color="hsl(0, 0%, 33%)" strokeWidth={1.75} />
       </button>
       <div className="cart-items">
-        {products.map((item) => (
+        {cartItems.map((item) => (
           <CartItem key={item.id} item={item} onRemove={handleRemoveItem} />
         ))}
       </div>
