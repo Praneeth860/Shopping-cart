@@ -1,45 +1,86 @@
-import { useState, createContext, useContext } from "react";
+// cartContext.tsx
+import { useState, createContext, useContext, useMemo } from "react";
 import { Product } from "../assets/images";
+
 export interface cartContextType {
   cartItems: Product[];
-  addToCart(item: Product, quantity: number): void;
-  removeItemFromCart: (id: number) => void;
+  addOneToCart: (item: Product) => void;
+  removeOneFromCart: (item: Product) => void;
+  removeFromCart: (id: number) => void;
+  getCartQuantity: (id: number) => number;
+  calculateTotal: () => number;
+  calculateCartCount: () => number;
 }
+
 interface CartProviderProps {
   children: React.ReactNode;
 }
-type ExistingItem = Product | undefined;
-export const CartContext = createContext<cartContextType | undefined>(
-  undefined
-);
+
+const CartContext = createContext<cartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<Product[]>([]);
-  function addToCart(item: Product, quantity: number): void {
-    setCartItems((prevItems: Product[]): Product[] => {
-      const existingItem: ExistingItem = prevItems.find(
-        (i: Product) => i.id === item.id
-      );
-      if (existingItem) {
-        // If item exists, updating the quantity
-        return prevItems.map(
-          (i): Product => (i.id === item.id ? { ...i, quantity: quantity } : i)
-        );
-      } else {
-        // Otherwise, add the item to the cart
-        return [...prevItems, item];
+
+  const getCartQuantity = (id: number) => {
+    return cartItems.find((item) => item.id === id)?.quantity || 0;
+  };
+
+  const addOneToCart = (item: Product) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((i) => i.id === item.id);
+      if (!existingItem) {
+        return [...prevItems, { ...item, quantity: 1 }];
       }
+      return prevItems.map((i) =>
+        i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+      );
     });
-  }
-  const removeItemFromCart = (id: number) => {
+  };
+
+  const removeOneFromCart = (item: Product) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((i) => i.id === item.id);
+      if (!existingItem) return prevItems;
+
+      if (existingItem.quantity === 1) {
+        return prevItems.filter((i) => i.id !== item.id);
+      }
+
+      return prevItems.map((i) =>
+        i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i
+      );
+    });
+  };
+
+  const removeFromCart = (id: number) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
+  const calculateCartCount = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeItemFromCart }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addOneToCart,
+        removeOneFromCart,
+        removeFromCart,
+        getCartQuantity,
+        calculateTotal,
+        calculateCartCount,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
 }
+
 export const useCart = (): cartContextType => {
   const context = useContext(CartContext);
   if (!context) {

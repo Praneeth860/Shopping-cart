@@ -2,9 +2,15 @@ import { NavLink } from "react-router-dom";
 import "../styles/components/navbar.css";
 import CartIcon from "../assets/icons/CartIcon";
 import ShoppingCart from "./ShoppingCart";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useCart } from "../context/cartContext";
 const Navbar = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
+  const { cartItems, calculateCartCount } = useCart();
+  const totalCartCount: number = useMemo(
+    () => calculateCartCount(),
+    [cartItems]
+  );
   function handleOffCanvas(): void {
     setOpen((prev) => !prev);
   }
@@ -40,7 +46,9 @@ const Navbar = () => {
           </ul>
           <button className="cart-button" onClick={handleOffCanvas}>
             <CartIcon />
-            <span className="cart-badge">7</span>
+            {totalCartCount > 0 && (
+              <span className="cart-badge">{totalCartCount}</span>
+            )}
           </button>
         </div>
       </nav>

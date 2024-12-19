@@ -17,7 +17,9 @@ const CartItem = ({ item, onRemove }: CartItemProps) => (
       <p className="cart-item-price">{formatPrice(item.price)}</p>
     </div>
     <div className="cart-item-actions">
-      <p className="cart-item-total">{formatPrice(item.price)}</p>
+      <p className="cart-item-total">
+        {formatPrice(item.price * item.quantity)}
+      </p>
       <button
         className="remove-btn"
         onClick={() => onRemove(item.id)}

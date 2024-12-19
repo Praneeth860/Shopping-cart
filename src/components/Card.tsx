@@ -3,15 +3,15 @@ import "../styles/components/card.css";
 import formatPrice from "../utils/formatPrice";
 interface CardProps {
   product: Product;
-  handleIncrement(item: Product): void;
-  handleDecerement(item: Product): void;
-  handleRemove(item: Product): void;
+  addOneToCart(item: Product): void;
+  removeOneFromCart(item: Product): void;
+  removeFromCart(id: number): void;
 }
 const Card = ({
   product,
-  handleIncrement,
-  handleDecerement,
-  handleRemove,
+  addOneToCart,
+  removeOneFromCart,
+  removeFromCart,
 }: CardProps) => {
   return (
     <div className="product-card">
@@ -24,7 +24,7 @@ const Card = ({
         <button
           className="card-button"
           onClick={() => {
-            handleIncrement(product);
+            addOneToCart(product);
           }}
         >
           + Add to Cart
@@ -35,7 +35,7 @@ const Card = ({
             <button
               className="quantity-button "
               onClick={() => {
-                handleDecerement(product);
+                removeOneFromCart(product);
               }}
             >
               -
@@ -46,7 +46,7 @@ const Card = ({
             <button
               className="quantity-button"
               onClick={() => {
-                handleIncrement(product);
+                addOneToCart(product);
               }}
             >
               +
@@ -55,7 +55,7 @@ const Card = ({
           <button
             className="remove-button"
             onClick={() => {
-              handleRemove(product);
+              removeFromCart(product.id);
             }}
           >
             Remove

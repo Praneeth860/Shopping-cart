@@ -8,14 +8,7 @@ interface CartProps {
   handleOffCanvas: () => void;
 }
 const ShoppingCart = ({ isOpen, handleOffCanvas }: CartProps) => {
-  const { cartItems } = useCart();
-  const calculateTotal = () =>
-    cartItems.reduce((sum, item) => sum + item.price, 0);
-
-  const handleRemoveItem = (id: number) => {
-    console.log(`Remove item with id: ${id}`);
-    // Implement remove logic here
-  };
+  const { cartItems, removeFromCart, calculateTotal } = useCart();
 
   return (
     <div className={`cart-container ${isOpen && "visible-cart"}`}>
@@ -29,7 +22,7 @@ const ShoppingCart = ({ isOpen, handleOffCanvas }: CartProps) => {
       </button>
       <div className="cart-items">
         {cartItems.map((item) => (
-          <CartItem key={item.id} item={item} onRemove={handleRemoveItem} />
+          <CartItem key={item.id} item={item} onRemove={removeFromCart} />
         ))}
       </div>
       <div className="cart-total">
