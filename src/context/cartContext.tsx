@@ -1,7 +1,7 @@
 // cartContext.tsx
 import { useState, useEffect, createContext, useContext } from "react";
 import { Product } from "../assets/images";
-
+import { useLocalStorage } from "../hooks/useLocalStorage";
 export interface cartContextType {
   cartItems: Product[];
   addOneToCart: (item: Product) => void;
@@ -19,14 +19,10 @@ interface CartProviderProps {
 const CartContext = createContext<cartContextType | undefined>(undefined);
 export const CART_STORAGE_KEY = "shopping-cart";
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useState<Product[]>(() => {
-    const savedCart = localStorage.getItem(CART_STORAGE_KEY);
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
-  }, [cartItems]);
+  const [cartItems, setCartItems] = useLocalStorage<Product[]>(
+    CART_STORAGE_KEY,
+    []
+  );
 
   const getCartQuantity = (id: number) => {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
