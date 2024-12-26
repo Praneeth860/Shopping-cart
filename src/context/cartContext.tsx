@@ -1,5 +1,5 @@
 // cartContext.tsx
-import { useState, useEffect, createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 import { Product } from "../assets/images";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 export interface cartContextType {

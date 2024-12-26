@@ -1,8 +1,8 @@
 // index.ts
-import image1 from "./book.jpg";
-import image2 from "./computer.jpg";
-import image3 from "./banana.jpg";
-import image4 from "./car.jpg";
+import image1 from "./book.webp";
+import image2 from "./computer.webp";
+import image3 from "./banana.webp";
+import image4 from "./car.webp";
 
 export interface Product {
   id: number;

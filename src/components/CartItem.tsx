@@ -9,7 +9,12 @@ interface CartItemProps {
 
 const CartItem = ({ item, onRemove }: CartItemProps) => (
   <div className="cart-item" key={item.id}>
-    <img src={item.image} alt={item.name} className="cart-item-image" />
+    <img
+      src={item.image}
+      alt={item.name}
+      loading="lazy"
+      className="cart-item-image"
+    />
     <div className="cart-item-details">
       <h3 className="cart-item-name">
         {item.name} <span className="cart-quantity">x{item.quantity}</span>
