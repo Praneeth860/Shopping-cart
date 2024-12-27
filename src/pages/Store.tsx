@@ -1,9 +1,9 @@
 // Store.tsx
-import Card from "../components/Card";
+
 import products from "../assets/images";
 import "../styles/components/store.css";
 import { useCart } from "../context/cartContext";
-
+import Card from "../components/Card";
 const Store = () => {
   const { addOneToCart, removeOneFromCart, removeFromCart, getCartQuantity } =
     useCart();

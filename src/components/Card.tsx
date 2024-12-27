@@ -1,7 +1,7 @@
 import { Product } from "../assets/images";
 import "../styles/components/card.css";
 import formatPrice from "../utils/formatPrice";
-interface CardProps {
+export interface CardProps {
   product: Product;
   addOneToCart(item: Product): void;
   removeOneFromCart(item: Product): void;

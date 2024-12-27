@@ -1,21 +1,9 @@
 /* ShoppingCart.css */
+
 .cart-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50%; /*  or use 30% */
-  max-width: 450px; /* 350px Optional, to limit the size */
-  min-width: 350px;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: -2px 0 5px hsla(0, 0%, 0%, 0.1);
-  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-family: var(--font-family);
-  translate: 100% 0;
-  transition: translate 0.3s;
 }
 .visible-cart {
   translate: 0 0;

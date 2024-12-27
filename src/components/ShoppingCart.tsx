@@ -7,7 +7,7 @@ interface CartProps {
   isOpen: boolean;
   handleOffCanvas: () => void;
 }
-const ShoppingCart = ({ isOpen, handleOffCanvas }: CartProps) => {
+const ShoppingCart: React.FC<CartProps> = ({ isOpen, handleOffCanvas }) => {
   const { cartItems, removeFromCart, calculateTotal } = useCart();
 
   return (
