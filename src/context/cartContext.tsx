@@ -2,6 +2,7 @@
 import { createContext, useContext } from "react";
 import { Product } from "../assets/images";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useCallback } from "react";
 export interface cartContextType {
   cartItems: Product[];
   addOneToCart: (item: Product) => void;
@@ -17,56 +18,66 @@ interface CartProviderProps {
 }
 
 const CartContext = createContext<cartContextType | undefined>(undefined);
-export const CART_STORAGE_KEY = "shopping-cart";
 export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useLocalStorage<Product[]>(
-    CART_STORAGE_KEY,
+    "shopping-cart",
     []
   );
 
-  const getCartQuantity = (id: number) => {
-    return cartItems.find((item) => item.id === id)?.quantity || 0;
-  };
+  const getCartQuantity = useCallback(
+    (id: number) => cartItems.find((item) => item.id === id)?.quantity || 0,
+    [cartItems]
+  );
 
-  const addOneToCart = (item: Product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id);
-      if (!existingItem) {
-        return [...prevItems, { ...item, quantity: 1 }];
-      }
-      return prevItems.map((i) =>
-        i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-      );
-    });
-  };
+  const addOneToCart = useCallback(
+    (item: Product) => {
+      setCartItems((prev) => {
+        const existingItem = prev.find((i) => i.id === item.id);
+        if (!existingItem) {
+          return [...prev, { ...item, quantity: 1 }];
+        }
+        return prev.map((i) =>
+          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+        );
+      });
+    },
+    [setCartItems]
+  );
 
-  const removeOneFromCart = (item: Product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id);
-      if (!existingItem) return prevItems;
+  const removeOneFromCart = useCallback(
+    (item: Product) => {
+      setCartItems((prev) => {
+        const existingItem = prev.find((i) => i.id === item.id);
+        if (!existingItem) return prev;
+        if (existingItem.quantity === 1) {
+          return prev.filter((i) => i.id !== item.id);
+        }
+        return prev.map((i) =>
+          i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i
+        );
+      });
+    },
+    [setCartItems]
+  );
 
-      if (existingItem.quantity === 1) {
-        return prevItems.filter((i) => i.id !== item.id);
-      }
+  const removeFromCart = useCallback(
+    (id: number) => {
+      setCartItems((prev) => prev.filter((item) => item.id !== id));
+    },
+    [setCartItems]
+  );
 
-      return prevItems.map((i) =>
-        i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i
-      );
-    });
-  };
+  const calculateTotal = useCallback(
+    () =>
+      cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
+    [cartItems]
+  );
 
-  const removeFromCart = (id: number) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-  const calculateTotal = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  };
-  const calculateCartCount = () => {
-    return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
+  const calculateCartCount = useCallback(
+    () => cartItems.reduce((total, item) => total + item.quantity, 0),
+    [cartItems]
+  );
+
   return (
     <CartContext.Provider
       value={{

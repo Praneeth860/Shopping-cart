@@ -1,13 +1,14 @@
 import { X } from "lucide-react";
 import { Product } from "../assets/images";
 import formatPrice from "../utils/formatPrice";
+import { memo } from "react";
 
 interface CartItemProps {
   item: Product;
   onRemove: (id: number) => void;
 }
 
-const CartItem = ({ item, onRemove }: CartItemProps) => (
+const CartItem = memo(({ item, onRemove }: CartItemProps) => (
   <div className="cart-item" key={item.id}>
     <img
       src={item.image}
@@ -34,6 +35,6 @@ const CartItem = ({ item, onRemove }: CartItemProps) => (
       </button>
     </div>
   </div>
-);
+));
 
 export default CartItem;

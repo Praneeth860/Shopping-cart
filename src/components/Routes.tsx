@@ -1,9 +1,7 @@
 import { Routes as AppRoutes, Route } from "react-router-dom";
-// import Home from "../pages/Home";
-// import Store from "../pages/Store";
-// import About from "../pages/About";
+import Home from "../pages/Home";
+
 import { Suspense, lazy } from "react";
-const Home = lazy(() => import("../pages/Home"));
 const Store = lazy(() => import("../pages/Store"));
 const About = lazy(() => import("../pages/About"));
 export default function Routes() {
