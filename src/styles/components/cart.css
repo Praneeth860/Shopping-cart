@@ -91,6 +91,11 @@
   font-size: 1.25rem;
   font-weight: bold;
 }
+@media (width <= 520px) {
+  .cart-item-image {
+    width: 90px;
+  }
+}
 @media (width <= 800px) {
   .cart-item {
     flex-wrap: wrap;
