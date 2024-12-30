@@ -91,3 +91,11 @@
   font-size: 1.25rem;
   font-weight: bold;
 }
+@media (width <= 800px) {
+  .cart-item {
+    flex-wrap: wrap;
+  }
+  .cart-container {
+    padding-inline: 0.875rem;
+  }
+}

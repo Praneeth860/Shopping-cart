@@ -1,5 +1,5 @@
 .store-container {
-  margin: 20px;
+  margin: 0.625rem;
   max-width: 1250px;
 }
 
@@ -18,25 +18,20 @@
   align-items: start;
 }
 @media (480px <= width <= 767px) {
-  .store-container,
-  .home-container,
-  .about-container {
+  .store-container {
     margin: 1.25rem 2rem;
   }
 }
+
 @media (min-width: 768px) and (max-width: 1350px) {
-  .store-container,
-  .home-container,
-  .about-container {
+  .store-container {
     margin: 1.25rem 2.5rem;
   }
 }
 
 /* Laptops and desktops */
 @media (min-width: 1350px) {
-  .store-container,
-  .home-container,
-  .about-container {
+  .store-container {
     margin: 20px auto;
   }
 }

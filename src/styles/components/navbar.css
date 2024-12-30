@@ -17,7 +17,7 @@
   font-size: 1.2rem;
   font-family: var(--font-family);
   padding: 0.3rem;
-  padding-inline: 1.5rem;
+  padding-inline: 1rem;
   box-shadow: 0px 0px 4px 0px hsl(0, 0%, 61%);
   /* background-color: hsl(0, 0%, 50%);
   opacity: 0.7; */
@@ -93,9 +93,9 @@ nav a {
   position: fixed;
   top: 0;
   right: 0;
-  width: 50%; /*  or use 30% */
+  width: 70%; /*  or use 30% */
   max-width: 450px; /* 350px Optional, to limit the size */
-  min-width: 350px;
+  min-width: 320px;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0 5px hsla(0, 0%, 0%, 0.1);
