@@ -15,8 +15,8 @@ export default function Routes() {
         }
       >
         <AppRoutes>
-          <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Store />} />
           <Route path="/about" element={<About />} />
         </AppRoutes>
       </Suspense>

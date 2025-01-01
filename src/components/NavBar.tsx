@@ -19,8 +19,8 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="nav_container">
           <ul className="navbar-list">
-            <MemoizedNavLink to="/">Home</MemoizedNavLink>
-            <MemoizedNavLink to="/store">Store</MemoizedNavLink>
+            <MemoizedNavLink to="/home">Home</MemoizedNavLink>
+            <MemoizedNavLink to="/">Store</MemoizedNavLink>
             <MemoizedNavLink to="/about">About</MemoizedNavLink>
           </ul>
           <button className="cart-button" onClick={handleOffCanvas}>
