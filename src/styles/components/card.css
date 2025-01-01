@@ -31,6 +31,7 @@
   font-size: 2rem;
   font-weight: 500;
   color: #333;
+  cursor: default;
 }
 
 .product-price {

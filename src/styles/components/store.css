@@ -1,6 +1,7 @@
 .store-container {
   margin: 0.625rem;
   max-width: 1250px;
+  cursor: default;
 }
 
 .store-title {

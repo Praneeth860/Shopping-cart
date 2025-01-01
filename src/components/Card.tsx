@@ -1,7 +1,8 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { Product } from "../assets/images";
 import "../styles/components/card.css";
 import formatPrice from "../utils/formatPrice";
+
 export interface CardProps {
   product: Product;
   addOneToCart(item: Product): void;
@@ -10,16 +11,25 @@ export interface CardProps {
 }
 const Card = memo(
   ({ product, addOneToCart, removeOneFromCart, removeFromCart }: CardProps) => {
+    useEffect(() => {
+      // Dynamically add a preload link to the head
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = product.image;
+
+      document.head.appendChild(link);
+
+      // Cleanup the link element when the component unmounts
+      return () => {
+        document.head.removeChild(link);
+      };
+    }, [product.image]);
     return (
       <div className="product-card">
-        <img
-          src={product.image}
-          loading="lazy"
-          alt={product.name}
-          className="product-image"
-        />
+        <img src={product.image} alt={product.name} className="product-image" />
         <div className="product-info">
-          <h3 className="product-name">{product.name}</h3>
+          <h2 className="product-name">{product.name}</h2>
           <p className="product-price">{formatPrice(product.price)}</p>
         </div>
         {product.quantity == 0 ? (
