@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 20px;
   cursor: default;
+  z-index: 1;
 }
 
 .cart-title {
