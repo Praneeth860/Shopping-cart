@@ -23,7 +23,11 @@ const Navbar = () => {
             <MemoizedNavLink to="/">Store</MemoizedNavLink>
             <MemoizedNavLink to="/about">About</MemoizedNavLink>
           </ul>
-          <button className="cart-button" onClick={handleOffCanvas}>
+          <button
+            className="cart-button"
+            aria-label={`Shopping cart with ${totalCartCount} items`}
+            onClick={handleOffCanvas}
+          >
             <CartIcon />
             {totalCartCount > 0 && (
               <span className="cart-badge">{totalCartCount}</span>
