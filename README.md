@@ -45,30 +45,18 @@ Before you begin, ensure you have met the following requirements:
 ---
 
 ## Installation
-
 ```bash
 # Clone the repository
 git clone https://github.com/Praneeth860/shopping-cart.git
-
 # Navigate to the project folder
 cd shopping-cart
-
 # Install the required dependencies
 npm install
-# or
-yarn
-
 # Start the development server
 npm run dev
-# or
-yarn dev
-
 # Open your browser and go to http://localhost:5173 to view the app
-
 # Create an optimized production build
 npm run build
-# or
-yarn build
 ```
 ##  Acknowledgements
 
