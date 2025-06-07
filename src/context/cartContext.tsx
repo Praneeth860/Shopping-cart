@@ -1,6 +1,6 @@
 // cartContext.tsx
 import { createContext, useContext } from "react";
-import { Product } from "../assets/images";
+import { Product } from "../assets";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useCallback } from "react";
 export interface cartContextType {

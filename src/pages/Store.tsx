@@ -1,6 +1,6 @@
 // Store.tsx
 
-import products from "../assets/images";
+import products from "../data/items.json";
 import "../styles/components/store.css";
 import { useCart } from "../context/cartContext";
 import Card from "../components/Card";

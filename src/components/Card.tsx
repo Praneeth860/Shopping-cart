@@ -1,5 +1,5 @@
 import { memo, useEffect } from "react";
-import { Product } from "../assets/images";
+import { Product } from "../assets";
 import "../styles/components/card.css";
 import formatPrice from "../utils/formatPrice";
 

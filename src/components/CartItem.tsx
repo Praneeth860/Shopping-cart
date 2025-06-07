@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { Product } from "../assets/images";
+import { Product } from "../assets";
 import formatPrice from "../utils/formatPrice";
 import { memo } from "react";
 
